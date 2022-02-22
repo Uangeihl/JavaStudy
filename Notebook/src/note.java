@@ -15,7 +15,7 @@ public class note {
         return super.equals(obj);
     }
 
-    private ArrayList<CD> listCD=new ArrayList<CD>();
+
     private int a;
 
     @Override
