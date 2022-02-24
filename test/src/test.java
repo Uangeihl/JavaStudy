@@ -1,10 +1,11 @@
 
 public class test {
     public static void main(String[] args) {
+
 //        Scanner input=new Scanner(System.in);
-        String s="012345hello";
+//        String s="012345hello";
 //        s="input.nextLine()";
-        System.out.println(s.charAt(6));
+//        System.out.println(s.charAt(6));
 //        System.out.println((int)(Math.random()*100));
 //        System.out.println(Character.toUpperCase('a'));
 //        Scanner input = new Scanner(System.in);
