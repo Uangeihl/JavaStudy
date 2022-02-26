@@ -7,3 +7,5 @@
 * 代码改进
     * castle按照低耦合设计原则改进
     * cells与狐狸吃兔子
+        * cells改为接口
+        * 将狐狸与兔子继承animals并接入cells
