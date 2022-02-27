@@ -37,17 +37,7 @@ public class Game {
         System.out.println("这是一个超级无聊的游戏。");
         System.out.println("如果需要帮助，请输入 'help' 。");
         System.out.println();
-        System.out.println("现在你在" + currentRoom);
-        System.out.print("出口有：");
-        if(currentRoom.northExit != null)
-            System.out.print("north ");
-        if(currentRoom.eastExit != null)
-            System.out.print("east ");
-        if(currentRoom.southExit != null)
-            System.out.print("south ");
-        if(currentRoom.westExit != null)
-            System.out.print("west ");
-        System.out.println();
+        showPrompt();
     }
 
     // 以下为用户命令
@@ -60,39 +50,25 @@ public class Game {
 
     private void goRoom(String direction) 
     {
-        Room nextRoom = null;
-        if(direction.equals("north")) {
-            nextRoom = currentRoom.northExit;
-        }
-        if(direction.equals("east")) {
-            nextRoom = currentRoom.eastExit;
-        }
-        if(direction.equals("south")) {
-            nextRoom = currentRoom.southExit;
-        }
-        if(direction.equals("west")) {
-            nextRoom = currentRoom.westExit;
-        }
+        Room nextRoom = currentRoom.getExit(direction);
+
 
         if (nextRoom == null) {
             System.out.println("那里没有门！");
         }
         else {
             currentRoom = nextRoom;
-            System.out.println("你在" + currentRoom);
-            System.out.print("出口有: ");
-            if(currentRoom.northExit != null)
-                System.out.print("north ");
-            if(currentRoom.eastExit != null)
-                System.out.print("east ");
-            if(currentRoom.southExit != null)
-                System.out.print("south ");
-            if(currentRoom.westExit != null)
-                System.out.print("west ");
-            System.out.println();
+            showPrompt();
         }
     }
-	
+
+    public void showPrompt(){
+        System.out.println("你在" + currentRoom);
+        System.out.print("出口有: ");
+        System.out.println(currentRoom.getExitDesc());
+        System.out.println();
+    }
+
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		Game game = new Game();
