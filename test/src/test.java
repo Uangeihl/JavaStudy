@@ -1,6 +1,17 @@
+import java.util.Scanner;
 
 public class test {
     public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        int[] a=new int[10];
+        try{
+            a[in.nextInt()]=10;
+            System.out.println("try");
+        }catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("catch");
+        }
+
+
 
 //        Scanner input=new Scanner(System.in);
 //        String s="012345hello";
