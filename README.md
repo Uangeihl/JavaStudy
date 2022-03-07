@@ -10,3 +10,6 @@
     * cells与狐狸吃兔子
         * cells改为接口
         * 将狐狸与兔子继承animals并接入cells
+* maven结构学习
+* Tomcat连接
+* jsp与html
