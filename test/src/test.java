@@ -1,18 +1,41 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class test {
     public static void main(String[] args) {
-        Scanner in=new Scanner(System.in);
-        int[] a=new int[10];
-        try{
-            a[in.nextInt()]=10;
-            System.out.println("try");
-        }catch (ArrayIndexOutOfBoundsException e){
-            System.out.println("catch");
+        ArrayList list=new ArrayList();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(5);
+        list.add(4);
+//        list.remove(4);
+//        Iterator it = list.iterator( );
+//        while(it.hasNext( )) {
+//            System.out.println(it.next());
+//        }k
+        System.out.println(list);
+        Map map = new TreeMap( );
+        map.put("1", "Monday");
+        map.put("3", "Wendsday");
+        map.put("4"," Thursday");
+        map.put("2"," Tuesday");
+        Set keys = map.keySet( );
+        Iterator it = keys.iterator( );
+        while(it.hasNext( )) {
+            String key = (String)it.next( );
+            String value = (String)map.get(key);
+            System.out.println(key + " " + value);
         }
 
 
-
+//        Scanner in=new Scanner(System.in);
+//        int[] a=new int[10];
+//        try{
+//            a[in.nextInt()]=10;
+//            System.out.println("try");
+//        }catch (ArrayIndexOutOfBoundsException e){
+//            System.out.println("catch");
+//        }
 //        Scanner input=new Scanner(System.in);
 //        String s="012345hello";
 //        s="input.nextLine()";
