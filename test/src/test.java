@@ -1,32 +1,47 @@
 import java.util.*;
 
 public class test {
-    public static void main(String[] args) {
-        ArrayList list=new ArrayList();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.add(5);
-        list.add(4);
-//        list.remove(4);
-//        Iterator it = list.iterator( );
-//        while(it.hasNext( )) {
-//            System.out.println(it.next());
-//        }k
-        System.out.println(list);
-        Map map = new TreeMap( );
-        map.put("1", "Monday");
-        map.put("3", "Wendsday");
-        map.put("4"," Thursday");
-        map.put("2"," Tuesday");
-        Set keys = map.keySet( );
-        Iterator it = keys.iterator( );
-        while(it.hasNext( )) {
-            String key = (String)it.next( );
-            String value = (String)map.get(key);
-            System.out.println(key + " " + value);
-        }
+//    public static Comparable max(Comparable o1, Comparable o2){
+//        if(o1.compareTo(o2)>0)
+//            return o1;
+//        else
+//            return o2;
+//    }
+    public static <E extends Comparable<E>>E max(E o1,E o2){
+        if (o1.compareTo(o2)>0)
+        return o1;
+            else
+        return o2;
+    }
 
+    public static void main(String[] args) {
+        System.out.println(max("welcome", "123"));
+
+//        ArrayList list=new ArrayList();
+//        list.add(1);
+//        list.add(2);
+//        list.add(3);
+//        list.add(5);
+//        list.add(4);
+////        list.remove(4);
+////        Iterator it = list.iterator( );
+////        while(it.hasNext( )) {
+////            System.out.println(it.next());
+////        }k
+//        System.out.println(list);
+//        Map map = new TreeMap( );
+//        map.put("1", "Monday");
+//        map.put("3", "Wendsday");
+//        map.put("4"," Thursday");
+//        map.put("2"," Tuesday");
+//        Set keys = map.keySet( );
+//        Iterator it = keys.iterator( );
+//        while(it.hasNext( )) {
+//            String key = (String)it.next( );
+//            String value = (String)map.get(key);
+//            System.out.println(key + " " + value);
+//        }
+//
 
 //        Scanner in=new Scanner(System.in);
 //        int[] a=new int[10];
