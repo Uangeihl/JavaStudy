@@ -1,21 +1,10 @@
 import java.util.*;
-
 public class test {
-//    public static Comparable max(Comparable o1, Comparable o2){
-//        if(o1.compareTo(o2)>0)
-//            return o1;
-//        else
-//            return o2;
-//    }
-    public static <E extends Comparable<E>>E max(E o1,E o2){
-        if (o1.compareTo(o2)>0)
-        return o1;
-            else
-        return o2;
-    }
-
     public static void main(String[] args) {
-        System.out.println(max("welcome", "123"));
+        Class<test2> clazz=test2.class;
+        System.out.println(clazz.getCanonicalName());
+
+//        System.out.println(max("welcome", "123"));
 
 //        ArrayList list=new ArrayList();
 //        list.add(1);
@@ -137,5 +126,17 @@ public class test {
 //        }
 //        String num = scan.next();
 //        System.out.println("num = " + num);
+    }
+    //    public static Comparable max(Comparable o1, Comparable o2){
+//        if(o1.compareTo(o2)>0)
+//            return o1;
+//        else
+//            return o2;
+//    }
+    public static <E extends Comparable<E>>E max(E o1,E o2){
+        if (o1.compareTo(o2)>0)
+        return o1;
+            else
+        return o2;
     }
 }
