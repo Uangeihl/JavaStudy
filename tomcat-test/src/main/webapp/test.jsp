@@ -2,21 +2,21 @@
   Created by IntelliJ IDEA.
   User: Rick
   Date: 2022/3/13
-  Time: 涓嬪崍 09:46
+  Time: 下午 09:46
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page import="java.util.*" %>
+<%@ page contentType="text/html;
+                  charset=gb2312" %>
 <HTML>
-<head>
-    <title>test</title>
-</head>
 <BODY>
+你好,今天是
 <%
-    for (int i = 0; i < 3; i++) {
+    Date today=new Date();
 %>
-"hello"<br>
-<%
-    }
-%>
+<%=today.getDate()%>号，
+星期<%=today.getDay()%>
 </BODY>
 </HTML>
+
 
