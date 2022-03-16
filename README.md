@@ -15,3 +15,4 @@
 * servlet学习
 * jsp与html
 * JDBC学习
+* 泛型与反射
