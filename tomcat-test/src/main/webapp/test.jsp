@@ -31,7 +31,7 @@
         <input type="image" name="os" src="images\TURBOLINUX6.GIF">
         &nbsp;&nbsp;&nbsp;&nbsp;
         你所在地：
-        <select  name="area" width="50" size="1">
+        <select  name="area" style="width: 50px" size="1">
         <option value="北京"  selected > 北京 </option>
         <option value="天津" > 天津 </option>
         <option value="上海" > 上海 </option>
