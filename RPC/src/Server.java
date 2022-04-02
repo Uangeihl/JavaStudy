@@ -14,7 +14,7 @@ public class Server {
     }
     public static void main(String[] args) throws Exception {
         ServerSocket server = new ServerSocket(8088);
-        System.out.println("Server Running");
+//        System.out.println("Server Running");
         while(running){
             Socket client = server.accept();
             process(client);
@@ -27,14 +27,12 @@ public class Server {
         ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
         ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
 
-        //为了适应客户端通用化而做的改动
         String clazzName = ois.readUTF();
         String methodName = ois.readUTF();
         Class[] parameterTypes = (Class[]) ois.readObject();
         Object[] parameters = (Object[]) ois.readObject();
 
         //IUserService service = new IUserServiceImpl();
-        //本来是硬编码new出来的，现在变成从注册表中查到服务类，如果使用spring甚至还可以直接根据配置注入bean然后根据bean查找。
         Object service = registerTable.get(clazzName).newInstance();
         Method method = service.getClass().getMethod(methodName, parameterTypes);
         Object o = method.invoke(service, parameters);

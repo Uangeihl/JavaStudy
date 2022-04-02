@@ -3,7 +3,7 @@ public class Client {
 //        System.out.println(new IUserServiceImpl().findUserById(123));
         IUserService service = (IUserService) Stub.getStub(IUserService.class);
         IProductService service2 = (IProductService) Stub.getStub(IProductService.class);
-        System.out.println(service.findUserById(0));
+        System.out.println(service.findUserById(1));
         System.out.println(service2.findProductByName("Cat"));
     }
 }
