@@ -13,7 +13,6 @@ public class Stub {
                 Socket socket = new Socket("127.0.0.1",8088);
                 ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
 
-                //添加了服务类型的传输
                 oos.writeUTF(c.getName());//服务类型
                 oos.writeUTF(method.getName());//方法名
                 oos.writeObject(method.getParameterTypes());//方法参数类型
@@ -24,11 +23,11 @@ public class Stub {
                 ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
                 Object obj = ois.readObject();
 
-                return obj;//改为返回通用对象
+                return obj;
             }
         };
 
-        Object o = Proxy.newProxyInstance(c.getClassLoader(), new Class[]{c}, h);//这里要写成通用的c，而不是固定的接口
+        Object o = Proxy.newProxyInstance(c.getClassLoader(), new Class[]{c}, h);
 //        System.out.println(o.getClass().getName());
 //        System.out.println(o.getClass().getInterfaces()[0]);
         return o;

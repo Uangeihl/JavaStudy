@@ -34,6 +34,7 @@ public class Server {
 
         //IUserService service = new IUserServiceImpl();
         Object service = registerTable.get(clazzName).newInstance();
+//        Class service = Class.forName(clazzName);
         Method method = service.getClass().getMethod(methodName, parameterTypes);
         Object o = method.invoke(service, parameters);
         oos.writeObject(o);
