@@ -6,10 +6,10 @@ import java.sql.SQLException;
 
 public class DBConnect {
     Connection con=null;
-    String drivername="com.microsoft.jdbc.sqlserver.SQLServerDriver";
-    String   url="jdbc:microsoft:sqlserver://localhost:1433;DatabaseName =UserInfo";
-    String username="sa";
-    String password="";
+    String drivername="com.mysql.cj.jdbc.Driver";
+    String url="jdbc:mysql://localhost:3306";
+    String username="root";
+    String password="123456";
     public DBConnect() {
     }
     public Connection getConnection(){
