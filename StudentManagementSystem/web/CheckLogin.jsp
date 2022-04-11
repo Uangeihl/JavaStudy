@@ -15,6 +15,7 @@
         <title>CheckLogin</title>
     </head>
     <body>
+
         <%
             String userName = request.getParameter("userName");
             String password = request.getParameter("password");
