@@ -8,7 +8,6 @@ public class DBManager {
     private static final String username = "root";
     private static final String password = "123456";
 
-    private static Connection conn;
 
     static {
         try {
@@ -18,16 +17,18 @@ public class DBManager {
         }
     }
 
+    private static Connection conn;
+
     static {
         try {
-            Class.forName(driver);
-        } catch (Exception ex) {
-            ex.printStackTrace();
+            conn = DriverManager.getConnection(url,username,password);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
     }
 
     public ResultSet executeQuery(String sql) throws SQLException {
-        PreparedStatement pstmt=conn.prepareStatement(sql);
-        return pstmt.executeQuery();
+        PreparedStatement pst =conn.prepareStatement(sql);
+        return pst.executeQuery();
     }
 }

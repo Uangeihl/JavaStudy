@@ -3,13 +3,14 @@
   Created by IntelliJ IDEA.
   User: Rick
   Date: 2022/4/10
-  Time: ä¸‹åˆ 09:05
+  Time: ÏÂÎç 09:05
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=gb2312" language="java" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="Control.DBManager" %>
 <%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.SQLException" %>
 <html>
     <head>
         <title>CheckLogin</title>
@@ -20,14 +21,19 @@
             String userName = request.getParameter("userName");
             String password = request.getParameter("password");
 
-            //2 è¿žæŽ¥æ•°æ®åº“,æŸ¥è¯¢è®°å½•æ˜¯å¦å­˜åœ¨(ç™»å½•éªŒè¯)
+            //Á¬½ÓÊý¾Ý¿â,²éÑ¯¼ÇÂ¼ÊÇ·ñ´æÔÚ(µÇÂ¼ÑéÖ¤)
             DBManager db = new DBManager();
-            String sql = "select * from T_user where userName='"+userName+"' and password='"+password+"'";
-            ResultSet rs = db.executeQuery(sql);
+            String sql = "select * from user.check where userName='"+userName+"' and password='"+password+"'";
+            ResultSet resultSet = null;
+            try {
+                resultSet = db.executeQuery(sql);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
 
-            //3 è·³è½¬
-            if(rs.next()) response.sendRedirect("success.jsp");
-            else response.sendRedirect("loginForm.jsp");
+            //Ìø×ª
+            if(resultSet.next()) response.sendRedirect("success.jsp");
+            else response.sendRedirect("error.jsp");
         %>
 
     </body>
