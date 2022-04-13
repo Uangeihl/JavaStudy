@@ -11,10 +11,14 @@
         <title>Login</title>
     </head>
     <body>
+        <form action="CheckLogin.jsp" method="post">
         userName:<input type="text" name="userName"/>
         <br>
         password:<input type="password" name="password"/>
         <input type="submit" value="login"/>
-
+        </form>
+        <form action="register.jsp">
+            <input type="submit" value="register">
+        </form>
     </body>
 </html>
