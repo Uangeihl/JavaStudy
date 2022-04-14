@@ -11,6 +11,17 @@
         <title>success</title>
     </head>
     <body>
-        
+        <table border="2">
+            <tr>
+                <th>序号</th>
+                <th>书名</th>
+                <th>作者</th>
+                <th>出版社</th>
+                <th>出版时间</th>
+                <th>价格</th>
+                <th>ISBN号</th>
+            </tr>
+
+        </table>
     </body>
 </html>

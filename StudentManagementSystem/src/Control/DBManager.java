@@ -23,27 +23,16 @@ public class DBManager {
         return conn;
     }
 
-    public boolean checklogin(String userName,String password) throws SQLException {
-        boolean result=false;
+    public ResultSet executeQuery(String sql) throws SQLException {
         conn=DBManager.getConnection();
         Statement stmt = conn.createStatement();
-        String sql = "select * from user.check where userName='"+userName+"'and password='"+password+"'";
-        ResultSet resultSet = stmt.executeQuery(sql);
-        if(resultSet.next()) result = true;
-        stmt.close();
-        return result;
+        ResultSet resultSet=stmt.executeQuery(sql);
+        return resultSet;
     }
-
-    public boolean register(String userName, String password) throws SQLException {
-        if(userName==null||password==null) return false;
-        boolean result=false;
+    public int executeUpdate(String sql) throws SQLException {
         conn=DBManager.getConnection();
         Statement stmt = conn.createStatement();
-        String sql = "INSERT INTO user.check (userName,password) values('"+userName+"', '"+password+"')";
-        if(stmt.executeUpdate(sql)>=1) result=true;
-        stmt.close();
+        int result = stmt.executeUpdate(sql);
         return result;
     }
-
-
 }
