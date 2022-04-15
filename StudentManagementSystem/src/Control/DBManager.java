@@ -4,10 +4,11 @@ import java.sql.*;
 
 public class DBManager {
     private static final String driver = "com.mysql.cj.jdbc.Driver";
-    private static String url = "jdbc:mysql://localhost:3306";
-    private static String username = "root";
-    private static String pwd = "123456";
+    private static final String url = "jdbc:mysql://localhost:3306";
+    private static final String username = "root";
+    private static final String pwd = "123456";
     private static Connection conn = null;
+    private static Statement stmt = null;
     static {
         try {
             Class.forName(driver);
@@ -22,15 +23,20 @@ public class DBManager {
         }
         return conn;
     }
-
+    public void close() throws SQLException {
+        if(stmt!=null)
+            stmt.close();
+        if(conn!=null)
+            conn.close();
+    }
     public ResultSet executeQuery(String sql) throws SQLException {
-        conn=DBManager.getConnection();
+        conn=getConnection();
         Statement stmt = conn.createStatement();
         ResultSet resultSet=stmt.executeQuery(sql);
         return resultSet;
     }
     public int executeUpdate(String sql) throws SQLException {
-        conn=DBManager.getConnection();
+        conn=getConnection();
         Statement stmt = conn.createStatement();
         int result = stmt.executeUpdate(sql);
         return result;

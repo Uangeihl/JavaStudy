@@ -21,14 +21,13 @@
       }
     %>
 
-
     <form action="UserServlet" method="post">
       userName:<input type="text" name="userName"/>
       <br>
       password:<input type="password" name="password"/>
       <input type="submit" name="operate" value="login"/>
     </form>
-    <form action="register.jsp">
+    <form action="Register.jsp">
       <input type="submit" value="register">
     </form>
   </body>
