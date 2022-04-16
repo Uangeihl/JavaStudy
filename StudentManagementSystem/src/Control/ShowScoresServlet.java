@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class ShowScoresServlet extends HttpServlet {
     private int pageNow=1;
     private int rowCount=0;
-    private int pageSize=5;
+    private int pageSize=10;
     private int pageCount=0;
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,11 +28,14 @@ public class ShowScoresServlet extends HttpServlet {
         pageCount = sdl.getPageCount(pageSize,rowCount);
 
         String sql = "";
-        pageNow = Integer.parseInt(request.getParameter("pageNow"));
+        String str_pageNow = request.getParameter("pageNow");
+        if(str_pageNow != null){
+            pageNow = Integer.parseInt(str_pageNow);
+        }
         if(pageNow>1){
-            sql = "select top" + pageSize +" * form user.score where id not in(select top" + pageSize*(pageNow-1) +"id form user.score";
+            sql = "select * from user.score limit " + pageSize*(pageNow-1) +"," + pageSize +"";
         }else{
-            sql = "select top" + pageSize +" * form user.score";
+            sql = "select * from user.score limit " + pageSize +"";
         }
         ArrayList<Student> al = null;
         try {

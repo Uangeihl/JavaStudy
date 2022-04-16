@@ -12,8 +12,7 @@ public class ScoresDeal {
         String sql = "select * from user.score";
         resultSet = db.executeQuery(sql);
         while (resultSet.next()) rowcount = resultSet.getInt(1);
-        resultSet.close();
-        db.close();
+//        db.close();
         return rowcount;
     }
     public int getPageCount(int pagesize,int rowcount){
@@ -26,7 +25,7 @@ public class ScoresDeal {
         return pagecount;
     }
     public ArrayList<Student> showSelectResult(String selectsql) throws SQLException {
-        ArrayList<Student> scoreal = null;
+        ArrayList<Student> scoreal = new ArrayList<Student>();
         DBManager db = new DBManager();
         resultSet = db.executeQuery(selectsql);
         while (resultSet.next()){
@@ -36,8 +35,7 @@ public class ScoresDeal {
             stu.setClassname(resultSet.getString("classname"));
             stu.setScore(resultSet.getInt("score"));
             scoreal.add(stu);
-            resultSet.close();
-            db.close();
+//            db.close();
         }
         return scoreal;
     }

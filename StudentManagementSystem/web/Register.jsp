@@ -10,22 +10,37 @@
     <head>
         <title>register</title>
     </head>
-    <body>
+    <body align="center">
+        <h3>注册</h3>
         <%
-            String message = (String) request.getAttribute("message");
-            if(message!=null){
-                %>
-                <h2><%=message%></h2>
-                <%
-            }
+        String message = (String) request.getAttribute("message");
+        if(message!=null){
+            %>
+            <h2><%=message%></h2>
+            <%
+        }
         %>
         <form action="UserServlet" method="post">
-            userName:<input type="text" name="userName"/>
-            <br>
-            password:<input type="password" name="password"/>
-            <br>
-            checkpassword:<input type="password" name="checkpassword">
-            <input type="submit" name="operate" value="register"/>
+            <table align="center">
+                <tr>
+                    <td>账号</td>
+                    <td><input type="text" name="userName" placeholder="请输入账号"></td>
+                </tr>
+                <tr>
+                    <td>密码</td>
+                    <td><input type="password" name="password" placeholder="请输入密码"></td>
+                </tr>
+                <tr>
+                    <td>确认密码</td>
+                    <td><input type="password" name="checkpassword" placeholder="请确认密码"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td align="right">
+                        <input type="submit" name="operate" value="register">
+                    </td>
+                </tr>
+            </table>
         </form>
     </body>
 </html>

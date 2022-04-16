@@ -9,6 +9,7 @@ public class DBManager {
     private static final String pwd = "123456";
     private static Connection conn = null;
     private static Statement stmt = null;
+    private static ResultSet resultSet = null;
     static {
         try {
             Class.forName(driver);
@@ -28,6 +29,8 @@ public class DBManager {
             stmt.close();
         if(conn!=null)
             conn.close();
+        if(resultSet!=null)
+            resultSet.close();
     }
     public ResultSet executeQuery(String sql) throws SQLException {
         conn=getConnection();

@@ -19,4 +19,12 @@
         <servlet-name>StudentServlet</servlet-name>
         <url-pattern>/StudentServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>ShowScoresServlet</servlet-name>
+        <servlet-class>Control.ShowScoresServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowScoresServlet</servlet-name>
+        <url-pattern>/ShowScoresServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

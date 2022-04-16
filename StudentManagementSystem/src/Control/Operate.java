@@ -8,7 +8,7 @@ public class Operate {
     public ArrayList<Student> show() throws SQLException {
         DBManager db = new DBManager();
         ResultSet resultSet = null;
-        String sql = "select * from user.score";
+        String sql = "select * from user.score limit 5,10";
         resultSet = db.executeQuery(sql);
         ArrayList<Student> al = new ArrayList<Student>();
         while (resultSet.next()){

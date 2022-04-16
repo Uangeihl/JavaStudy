@@ -15,7 +15,7 @@
         <title>success</title>
     </head>
     <body>
-        <div style="text-align: center;">
+        <div align="center">
             <table border="2">
                 <tr>
                     <th>id</th>

@@ -26,10 +26,9 @@ public class UserServlet extends HttpServlet {
                 throwables.printStackTrace();
             }
             try {
-                if (resultSet.next()) response.sendRedirect("StudentManagement.jsp");
+                if (resultSet.next()) response.sendRedirect("ShowScoresServlet");
                 else {
                     request.setAttribute("message", "您的信息有误，请重新登录！");
-//                    response.sendRedirect("Login.jsp");
                     request.getRequestDispatcher("Login.jsp").forward(request, response);
                 }
             } catch (SQLException throwables) {
@@ -42,11 +41,9 @@ public class UserServlet extends HttpServlet {
             try {
                 if (userName.equals("")||password.equals("") || checkpassword.equals("")) {
                     request.getSession().setAttribute("message", "userName或password不可为空，请重新注册！");
-//                    response.sendRedirect("Register.jsp");
                     request.getRequestDispatcher("Register.jsp").forward(request, response);
                 } else if (!password.equals(checkpassword)) {
                     request.setAttribute("message", "password与checkpassword不一致，请重新注册！");
-//                    response.sendRedirect("Register.jsp");
                     request.getRequestDispatcher("Register.jsp").forward(request, response);
                 } else {
                     ResultSet resultSet = null;
@@ -58,18 +55,17 @@ public class UserServlet extends HttpServlet {
                     try {
                         if (resultSet.next()) {
                             resultSet.close();
-                            db.close();
+//                            db.close();
                             request.setAttribute("message", "用户名已注册，请更换用户名或直接登录！");
-//                            response.sendRedirect("Register.jsp");
                             request.getRequestDispatcher("Login.jsp").forward(request, response);
                         } else {
                             if(db.executeUpdate(sql2) >= 1) {
-                                db.close();
-                                response.sendRedirect("StudentManagement.jsp");
+//                                db.close();
+                                request.setAttribute("message", "注册成功，请登录！");
+                                request.getRequestDispatcher("Login.jsp").forward(request, response);
                             }
                             else {
                                 request.setAttribute("message", "您的信息有误，请重新注册！");
-//                                response.sendRedirect("Register.jsp");
                                 request.getRequestDispatcher("Register.jsp").forward(request, response);
                             }
                         }
