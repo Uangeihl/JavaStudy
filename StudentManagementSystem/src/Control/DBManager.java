@@ -24,24 +24,18 @@ public class DBManager {
         }
         return conn;
     }
-    public void close() throws SQLException {
-        if(stmt!=null)
-            stmt.close();
-        if(conn!=null)
+    public static void close() throws SQLException {
+        if(conn!=null) {
             conn.close();
-        if(resultSet!=null)
+            conn = null;
+        }
+        if(stmt!=null){
+            stmt.close();
+            stmt = null;
+        }
+        if(resultSet!=null){
             resultSet.close();
-    }
-    public ResultSet executeQuery(String sql) throws SQLException {
-        conn=getConnection();
-        Statement stmt = conn.createStatement();
-        ResultSet resultSet=stmt.executeQuery(sql);
-        return resultSet;
-    }
-    public int executeUpdate(String sql) throws SQLException {
-        conn=getConnection();
-        Statement stmt = conn.createStatement();
-        int result = stmt.executeUpdate(sql);
-        return result;
+            resultSet = null;
+        }
     }
 }

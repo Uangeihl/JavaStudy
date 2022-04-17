@@ -33,9 +33,9 @@ public class ShowScoresServlet extends HttpServlet {
             pageNow = Integer.parseInt(str_pageNow);
         }
         if(pageNow>1){
-            sql = "select * from user.score limit " + pageSize*(pageNow-1) +"," + pageSize +"";
+            sql = "select * from manager.score limit " + pageSize*(pageNow-1) +"," + pageSize +"";
         }else{
-            sql = "select * from user.score limit " + pageSize +"";
+            sql = "select * from manager.score limit " + pageSize +"";
         }
         ArrayList<Student> al = null;
         try {
@@ -47,6 +47,6 @@ public class ShowScoresServlet extends HttpServlet {
         request.setAttribute("pageNow",pageNow+"");
         request.setAttribute("rowCount",rowCount+"");
         request.setAttribute("pageCount",pageCount+"");
-        request.getRequestDispatcher("showselect.jsp").forward(request,response);
+        request.getRequestDispatcher("StudentManagement.jsp").forward(request,response);
     }
 }

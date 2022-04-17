@@ -1,18 +1,20 @@
 package Control;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class ScoresDeal {
     ResultSet resultSet = null;
     public int getRowCount() throws SQLException {
         int rowcount = 0;
-        DBManager db = new DBManager();
-        String sql = "select * from user.score";
-        resultSet = db.executeQuery(sql);
+        conn = DBManager.getConnection();
+        stmt=conn.createStatement();
+        String sql = "select * from manager.score";
+        resultSet = stmt.executeQuery(sql);
         while (resultSet.next()) rowcount = resultSet.getInt(1);
-//        db.close();
         return rowcount;
     }
     public int getPageCount(int pagesize,int rowcount){
@@ -24,19 +26,66 @@ public class ScoresDeal {
         }
         return pagecount;
     }
-    public ArrayList<Student> showSelectResult(String selectsql) throws SQLException {
+    public ArrayList<Student> showSelectResult(String sql) throws SQLException {
         ArrayList<Student> scoreal = new ArrayList<Student>();
-        DBManager db = new DBManager();
-        resultSet = db.executeQuery(selectsql);
+        conn = DBManager.getConnection();
+        stmt=conn.createStatement();
+        resultSet = stmt.executeQuery(sql);
         while (resultSet.next()){
             Student stu = new Student();
             stu.setId(resultSet.getInt("id"));
             stu.setName(resultSet.getString("name"));
-            stu.setClassname(resultSet.getString("classname"));
-            stu.setScore(resultSet.getInt("score"));
+            stu.setCzxt(resultSet.getInt("czxt"));
+            stu.setWjyl(resultSet.getInt("wjyl"));
+            stu.setJsjwl(resultSet.getInt("jsjwl"));
             scoreal.add(stu);
-//            db.close();
         }
         return scoreal;
+    }
+
+    private Connection conn=null;
+    private Statement stmt=null;
+    private ResultSet rs=null;
+    private String sql="";
+
+    public boolean isIdExist(int id) throws SQLException {
+        boolean result=false;
+        conn=new DBManager().getConnection();
+        stmt=conn.createStatement();
+        sql="select 1 from manager.score where id=" + id + " limit 1";
+        if(stmt.executeQuery(sql).next()) {
+            result=true;
+        }
+        return result;
+    }
+
+    public boolean addResult(Student student) throws SQLException {
+        boolean result=false;
+        if(isIdExist(student.getId())) return false;
+        conn=new DBManager().getConnection();
+        stmt=conn.createStatement();
+        sql="insert into manager.score (id,name,czxt,wjyl,jsjwl) values(" + student.getId() + ",'" + student.getName() + "'," + student.getCzxt() + "," + student.getWjyl() + "," + student.getJsjwl() + ")";
+        if(stmt.executeUpdate(sql)>=1) result=true;
+        return result;
+    }
+
+    public boolean modifyResult(Student student) throws SQLException {
+        boolean result=false;
+        if(!isIdExist(student.getId())) return false;
+        conn=new DBManager().getConnection();
+        stmt=conn.createStatement();
+        sql="update manager.score set name = '" + student.getName() + "',czxt = " + student.getCzxt() + ",wjyl = " + student.getWjyl() + ",jsjwl = " + student.getJsjwl() + " where id = " + student.getId() + "";
+        if(stmt.executeUpdate(sql)>=1) result=true;
+        return result;
+    }
+
+    public boolean deleteResult(int id) throws SQLException {
+        boolean result=false;
+        if(!isIdExist(id)) return false;
+        conn=new DBManager().getConnection();
+        stmt=conn.createStatement();
+        sql = "delete from manager.score where id = "+id ;
+        if(stmt.executeUpdate(sql)>=1) result=true;
+        return result;
     }
 }

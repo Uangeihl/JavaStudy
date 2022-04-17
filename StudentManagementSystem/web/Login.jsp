@@ -25,7 +25,7 @@
             <table align="center">
                 <tr>
                     <td>账号</td>
-                    <td><input type="text" name="userName" placeholder="请输入账号"></td>
+                    <td><input type="text" name="username" placeholder="请输入账号"></td>
                 </tr>
                 <tr>
                     <td>密码</td>

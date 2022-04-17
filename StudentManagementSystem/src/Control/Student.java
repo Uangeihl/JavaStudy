@@ -3,40 +3,58 @@ package Control;
 public class Student {
     private int id;
     private String name;
-    private String classname;
-    private int score;
+    private int czxt;
+    private int wjyl;
+    private int jsjwl;
 
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
+
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
-    public String getClassname() {
-        return classname;
+
+    public int getCzxt() {
+        return czxt;
     }
-    public void setClassname(String classname) {
-        this.classname = classname;
+
+    public void setCzxt(int czxt) {
+        this.czxt = czxt;
     }
-    public int getScore() {
-        return score;
+
+    public int getWjyl() {
+        return wjyl;
     }
-    public void setScore(int score) {
-        this.score = score;
+
+    public void setWjyl(int wjyl) {
+        this.wjyl = wjyl;
     }
+
+    public int getJsjwl() {
+        return jsjwl;
+    }
+
+    public void setJsjwl(int jsjwl) {
+        this.jsjwl = jsjwl;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", classname='" + classname + '\'' +
-                ", score=" + score +
+                ", czxt=" + czxt +
+                ", wjyl=" + wjyl +
+                ", jsjwl=" + jsjwl +
                 '}';
     }
 }
