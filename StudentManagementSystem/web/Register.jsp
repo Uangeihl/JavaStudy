@@ -11,12 +11,12 @@
         <title>register</title>
     </head>
     <body align="center">
-        <h3>注册</h3>
+        <h2>注册</h2>
         <%
         String message = (String) request.getAttribute("message");
         if(message!=null){
             %>
-            <h2><%=message%></h2>
+            <h4><%=message%></h4>
             <%
         }
         %>

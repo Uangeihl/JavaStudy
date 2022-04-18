@@ -11,7 +11,7 @@
         <title>Add</title>
     </head>
     <body align="center">
-        <h3>添加</h3>
+        <h2>添加</h2>
         <%
             String message = (String)request.getAttribute("message");
             if(message!=null){

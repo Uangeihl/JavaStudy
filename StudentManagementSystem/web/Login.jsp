@@ -12,12 +12,12 @@
         <title>Login</title>
     </head>
     <body align="center">
-        <h3>登录</h3>
+        <h2>登录</h2>
         <%
             String message = (String)request.getAttribute("message");
             if(message!=null){
         %>
-        <h2><%=message %></h2>
+        <h4><%=message %></h4>
         <%
             }
         %>

@@ -11,7 +11,7 @@
         <title>Modify</title>
     </head>
     <body align="center">
-        <h3>修改</h3>
+        <h2>修改</h2>
         <%
             String message = (String)request.getAttribute("message");
             if(message!=null){

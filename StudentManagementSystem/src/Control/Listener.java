@@ -12,7 +12,6 @@ import java.util.Enumeration;
 
 public class Listener implements ServletContextListener{
 
-
     public void contextInitialized(ServletContextEvent servletContextEvent) {
 
     }

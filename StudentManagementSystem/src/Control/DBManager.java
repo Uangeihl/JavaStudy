@@ -24,18 +24,4 @@ public class DBManager {
         }
         return conn;
     }
-    public static void close() throws SQLException {
-        if(conn!=null) {
-            conn.close();
-            conn = null;
-        }
-        if(stmt!=null){
-            stmt.close();
-            stmt = null;
-        }
-        if(resultSet!=null){
-            resultSet.close();
-            resultSet = null;
-        }
-    }
 }

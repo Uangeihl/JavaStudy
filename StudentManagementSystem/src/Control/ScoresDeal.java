@@ -5,9 +5,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ScoresDeal {
+    private Connection conn=null;
+    private Statement stmt=null;
     ResultSet resultSet = null;
+    private String sql="";
+
     public int getRowCount() throws SQLException {
         int rowcount = 0;
         conn = DBManager.getConnection();
@@ -43,11 +49,6 @@ public class ScoresDeal {
         return scoreal;
     }
 
-    private Connection conn=null;
-    private Statement stmt=null;
-    private ResultSet rs=null;
-    private String sql="";
-
     public boolean isIdExist(int id) throws SQLException {
         boolean result=false;
         conn=new DBManager().getConnection();
@@ -82,10 +83,20 @@ public class ScoresDeal {
     public boolean deleteResult(int id) throws SQLException {
         boolean result=false;
         if(!isIdExist(id)) return false;
-        conn=new DBManager().getConnection();
+        conn= new DBManager().getConnection();
         stmt=conn.createStatement();
         sql = "delete from manager.score where id = "+id ;
         if(stmt.executeUpdate(sql)>=1) result=true;
+        return result;
+    }
+
+    public boolean isNumber(String str){
+        boolean result = false;
+        Pattern pattern = Pattern.compile("^\\d+$");
+        Matcher matcher = pattern.matcher(str);
+        if (!matcher.matches()) {
+            result = true;
+        }
         return result;
     }
 }

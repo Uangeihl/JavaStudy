@@ -11,7 +11,7 @@
         <title>Delete</title>
     </head>
     <body align="center">
-        <h3>删除</h3>
+        <h2>删除</h2>
         <%
             String message = (String)request.getAttribute("message");
             if(message!=null){
