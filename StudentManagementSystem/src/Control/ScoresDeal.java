@@ -94,7 +94,7 @@ public class ScoresDeal {
         boolean result = false;
         Pattern pattern = Pattern.compile("^\\d+$");
         Matcher matcher = pattern.matcher(str);
-        if (!matcher.matches()) {
+        if (matcher.matches()) {
             result = true;
         }
         return result;

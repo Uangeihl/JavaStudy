@@ -41,7 +41,7 @@ public class ScoresOperateServlet extends HttpServlet {
         String strJsjwl = request.getParameter("jsjwl");
         if (strId.equals("")||strName.equals("")||strCzxt.equals("")||strWjyl.equals("")||strJsjwl.equals("")){
             flage = true;
-        } else if (sdl.isNumber(strId)||sdl.isNumber(strCzxt)||sdl.isNumber(strWjyl)||sdl.isNumber(strJsjwl)){
+        } else if (!sdl.isNumber(strId)||!sdl.isNumber(strCzxt)||!sdl.isNumber(strWjyl)||!sdl.isNumber(strJsjwl)){
             flage = true;
         } else {
             student.setId(Integer.parseInt(strId));
