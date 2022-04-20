@@ -16,7 +16,7 @@ public class ScoresOperateServlet extends HttpServlet {
         String operate = request.getParameter("operate");
         String strId = request.getParameter("id");
         if(operate.equals("delete")){
-            if(strId.equals("")||sdl.isNumber(strId)){
+            if(strId.equals("")||!sdl.isNumber(strId)){
                 request.setAttribute("message", "请输入正确值,且不可空");
                 request.getRequestDispatcher("Delete.jsp").forward(request, response);
             } else {
