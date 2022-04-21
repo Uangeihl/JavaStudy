@@ -25,10 +25,9 @@
                     <td><input type="text" name="id" placeholder="请输入学号"></td>
                     <td><input type="submit" name="operate" value="delete"></td>
                 </tr>
-                <tr>
-                    <td><a href="/StudentManagementSystem/ShowScoresServlet">返回</a></td>
-                </tr>
             </table>
+            <br>
+            <td><a href="/StudentManagementSystem/ShowScoresServlet">返回</a></td>
         </form>
     </body>
 </html>

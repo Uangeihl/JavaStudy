@@ -1,4 +1,4 @@
-<%--
+<%@ page import="Control.Student" %><%--
   Created by IntelliJ IDEA.
   User: Rick
   Date: 2022/4/17
@@ -19,22 +19,54 @@
         <h4><%=message %></h4>
         <%}%>
         <form action="ScoresOperateServlet">
+            <tr>
+                <td>学号</td>
+                <td><input type="text" name="id" placeholder="请输入需要修改的学号"></td>
+                <td><input type="submit" name="operate" value="search"></td>
+            </tr>
+        </form>
+        <%
+            Student student = (Student) request.getAttribute("stu");
+            if (student!=null) {
+        %>
+        <form action="ScoresOperateServlet">
             <table align="center">
-                <tr>
-                    <td>学号</td><td>姓名</td><td>操作系统</td><td>微机原理</td><td>计算机网络</td>
+                <tr  align="center">
+                    <td></td>
+                    <td >当前值</td>
+                    <td>修改</td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="id" placeholder="请输入学号"></td>
+                    <td>学号</td>
+                    <td><%=student.getId()%></td>
+                    <td><input type="text" name="id" placeholder="请确认学号"></td>
+                </tr>
+                <tr>
+                    <td>姓名</td>
+                    <td><%=student.getName()%></td>
                     <td><input type="text" name="name" placeholder="请输入姓名"></td>
+                </tr>
+                <tr>
+                    <td>操作系统</td>
+                    <td><%=student.getCzxt()%></td>
                     <td><input type="text" name="czxt" placeholder="请输入操作系统成绩"></td>
+                </tr>
+                    <td>微机原理</td>
+                    <td><%=student.getWjyl()%></td>
                     <td><input type="text" name="wjyl" placeholder="请输入微机原理成绩"></td>
+                <tr>
+                    <td>计算机网络</td>
+                    <td><%=student.getJsjwl()%></td>
                     <td><input type="text" name="jsjwl" placeholder="请输入计算机网络成绩"></td>
-                    <td><input type="submit" name="operate" value="modify"></td>
                 </tr>
                 <tr>
                     <td><a href="/StudentManagementSystem/ShowScoresServlet">返回</a></td>
+                    <td colspan="3" align="right"><input type="submit" name="operate" value="modify"></td>
                 </tr>
             </table>
         </form>
+        <%}else {%>
+        <td><a href="/StudentManagementSystem/ShowScoresServlet">返回</a></td>
+        <%}%>
     </body>
 </html>

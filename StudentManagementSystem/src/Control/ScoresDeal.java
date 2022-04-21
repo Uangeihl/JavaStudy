@@ -80,6 +80,20 @@ public class ScoresDeal {
         return result;
     }
 
+    public Student search(int id) throws SQLException {
+        Student stu = new Student();
+        sql = "select * from manager.score where id = " + id;
+        conn= new DBManager().getConnection();
+        stmt=conn.createStatement();
+        resultSet = stmt.executeQuery(sql);
+        stu.setId(id);
+        while (resultSet.next()){
+
+            stu.setName(resultSet.getString("name")); stu.setCzxt(resultSet.getInt("czxt")); stu.setWjyl(resultSet.getInt("wjyl"));resultSet.getInt("wjyl"); stu.setJsjwl(resultSet.getInt("jsjwl"));
+        }
+            return stu;
+    }
+
     public boolean deleteResult(int id) throws SQLException {
         boolean result=false;
         if(!isIdExist(id)) return false;
