@@ -12,12 +12,14 @@
     </head>
     <body align="center">
         <h2>删除</h2>
+        <%--记录错误信息--%>
         <%
             String message = (String)request.getAttribute("message");
             if(message!=null){
         %>
         <h4><%=message %></h4>
         <%}%>
+        <%--将id发送到ScoresOperateServlet--%>
         <form action="ScoresOperateServlet">
             <table align="center">
                 <tr>
@@ -27,6 +29,7 @@
                 </tr>
             </table>
             <br>
+            <%--返回到成绩管理系统的按钮--%>
             <td><a href="/StudentManagementSystem/ShowScoresServlet">返回</a></td>
         </form>
     </body>

@@ -1,7 +1,7 @@
 package Control;
 
 import java.sql.*;
-
+//数据库管理程序
 public class DBManager {
     private static final String driver = "com.mysql.cj.jdbc.Driver";
     private static final String url = "jdbc:mysql://localhost:3306";
@@ -10,6 +10,7 @@ public class DBManager {
     private static Connection conn = null;
     private static Statement stmt = null;
     private static ResultSet resultSet = null;
+//    注册驱动
     static {
         try {
             Class.forName(driver);
@@ -17,6 +18,7 @@ public class DBManager {
             ex.printStackTrace();
         }
     }
+//    建立连接
     public static Connection getConnection() throws SQLException {
         if (conn == null) {
             conn = DriverManager.getConnection(url, username, pwd);

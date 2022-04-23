@@ -12,12 +12,14 @@
     </head>
     <body align="center">
         <h2>添加</h2>
+        <%--记录错误信息--%>
         <%
             String message = (String)request.getAttribute("message");
             if(message!=null){
         %>
         <h4><%=message %></h4>
         <%}%>
+        <%--将学号，姓名，操作系统成绩，微机原理成绩和计算机网络成绩发送到ScoresOperateServlet--%>
         <form action="ScoresOperateServlet">
             <table align="center">
                 <tr>
@@ -39,6 +41,7 @@
                     <td><input type="text" name="jsjwl" placeholder="请输入计算机网络成绩"></td>
                 </tr>
                 <tr>
+                    <%--返回到成绩管理系统的按钮--%>
                     <td><a href="/StudentManagementSystem/ShowScoresServlet">返回</a></td>
                     <td align="right"><input type="submit" name="operate" value="add"></td>
                 </tr>

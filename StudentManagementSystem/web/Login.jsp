@@ -13,6 +13,7 @@
     </head>
     <body align="center">
         <h2>登录</h2>
+        <%--记录错误信息--%>
         <%
             String message = (String)request.getAttribute("message");
             if(message!=null){
@@ -21,6 +22,7 @@
         <%
             }
         %>
+        <%--账号与密码发送到UserServlet--%>
         <form action="UserServlet" method="post">
             <table align="center">
                 <tr>
@@ -33,6 +35,7 @@
                 </tr>
                 <tr>
                     <td>
+                        <%--注册按钮--%>
                         <a href="/StudentManagementSystem/Register.jsp">注册</a>
                     </td>
                     <td colspan="2" align="right">
