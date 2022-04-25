@@ -36,7 +36,7 @@
                 <tr>
                     <td>
                         <%--注册按钮--%>
-                        <a href="/StudentManagementSystem/Register.jsp">注册</a>
+                        <a href="/Register.jsp">注册</a>
                     </td>
                     <td colspan="2" align="right">
                         <input type="submit" name="operate" value="login">

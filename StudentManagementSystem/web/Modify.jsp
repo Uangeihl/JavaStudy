@@ -61,13 +61,13 @@
                     <td><input type="text" name="jsjwl" placeholder="请输入计算机网络成绩"></td>
                 </tr>
                 <tr>
-                    <td><a href="/StudentManagementSystem/ShowScoresServlet">返回</a></td>
+                    <td><a href="/ShowScoresServlet">返回</a></td>
                     <td colspan="3" align="right"><input type="submit" name="operate" value="modify"></td>
                 </tr>
             </table>
         </form>
         <%}else {%>
-        <td><a href="/StudentManagementSystem/ShowScoresServlet">返回</a></td>
+        <td><a href="/ShowScoresServlet">返回</a></td>
         <%}%>
     </body>
 </html>

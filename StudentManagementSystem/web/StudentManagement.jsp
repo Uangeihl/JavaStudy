@@ -58,19 +58,19 @@
             out.println("</table><br>");
             out.println("共有【"+rowCount+"】条记录，当前显示第【"+pageNow+"】页<br><br>");
 
-            out.println("<a href=/StudentManagementSystem/ShowScoresServlet?pageNow=1>首页</a>");
+            out.println("<a href=/ShowScoresServlet?pageNow=1>首页</a>");
 //            如果当前页码大于1，添加上一页按钮，并将当前页码传入ShowScoresServlet
             if(pageNow>1){
-                out.println("<a href=/StudentManagementSystem/ShowScoresServlet?pageNow="+(pageNow-1)+">上一页</a>");
+                out.println("<a href=/ShowScoresServlet?pageNow="+(pageNow-1)+">上一页</a>");
             }
 //            循环输出每一个页码链接
             for (int i = 1; i <= pageCount; i++) {
-                out.println("<a href=/StudentManagementSystem/ShowScoresServlet?pageNow="+i+">["+i+"]</a>");
+                out.println("<a href=/ShowScoresServlet?pageNow="+i+">["+i+"]</a>");
             }
 //            添加下一页与尾页按钮，最后一页不显示
             if(pageNow<pageCount){
-                out.println("<a href=/StudentManagementSystem/ShowScoresServlet?pageNow="+(pageNow+1)+">下一页</a>");
-                out.println("<a href=/StudentManagementSystem/ShowScoresServlet?pageNow="+pageCount+">尾页</a>");
+                out.println("<a href=/ShowScoresServlet?pageNow="+(pageNow+1)+">下一页</a>");
+                out.println("<a href=/ShowScoresServlet?pageNow="+pageCount+">尾页</a>");
             }
         %>
     </body>

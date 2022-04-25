@@ -38,7 +38,7 @@
                 </tr>
                 <tr>
                     <%--返回登录按钮--%>
-                    <td><a href="/StudentManagementSystem/Login.jsp">返回登录</a></td>
+                    <td><a href="/Login.jsp">返回登录</a></td>
                     <td align="right">
                         <input type="submit" name="operate" value="register">
                     </td>

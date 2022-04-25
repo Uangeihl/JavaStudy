@@ -30,7 +30,7 @@
             </table>
             <br>
             <%--返回到成绩管理系统的按钮--%>
-            <td><a href="/StudentManagementSystem/ShowScoresServlet">返回</a></td>
+            <td><a href="/ShowScoresServlet">返回</a></td>
         </form>
     </body>
 </html>
