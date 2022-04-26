@@ -30,4 +30,7 @@
     <listener>
         <listener-class>Control.Listener</listener-class>
     </listener>
+    <welcome-file-list>
+        <welcome-file>Login.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>
