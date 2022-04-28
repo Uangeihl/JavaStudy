@@ -1,17 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
 
-
-    <bean id="userDao" class="dao.impl.UserDaoimpl" init-method="init" destroy-method="destroy"/>
-    <bean id="userService" class="service.impl.UserServiceimpl">
-        <property name="userDao" ref="userDao"/>
+    <!--    <context:property-placeholder location="jdbc.properties"/>-->
+    <!--    <bean id="userDao" class="dao.impl.UserDaoimpl" init-method="init" destroy-method="destroy"/>-->
+    <bean id="userDao" class="dao.impl.UserDaoimpl">
+        <property name="array">
+            <array>
+                <value>10</value>
+                <value>20</value>
+                <value>30</value>
+            </array>
+        </property>
+        <property name="list">
+            <list>
+                <value>bob</value>
+                <value>cat</value>
+                <value>dog</value>
+            </list>
+        </property>
+        <property name="set">
+            <set>
+                <value>bob</value>
+                <value>cat</value>
+                <value>cat</value>
+                <value>dog</value>
+            </set>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="bob" value="Bob"/>
+                <entry key="cat" value="Cat"/>
+                <entry key="car" value="Car"/>
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="bob">Bob</prop>
+                <prop key="cat">Cat</prop>
+                <prop key="car">Cat</prop>
+            </props>
+        </property>
     </bean>
-
-
-
-<!--    <bean id="userDaoFactory" class="factory.UserDaoFactory"/>-->
-<!--    <bean id="userDao" factory-bean="userDaoFactory" factory-method="getUserDao"/>-->
-<!--    <bean id="userDao" class="factory.UserDaoFactoryBean"/>-->
+    <!--    <bean id="bookDao" class="dao.impl.BookDaoimpl"/>-->
+    <!--    <bean id="bookDao" class="dao.impl.BookDaoimpl">-->
+    <!--        <property name="conn" value="3"/>-->
+    <!--        <property name="database" value="mysql"/>-->
+    <!--    </bean>-->
+    <!--<bean id="bookDao" class="dao.impl.BookDaoimpl">
+        <constructor-arg name="conn" value="3"/>
+        <constructor-arg name="database" value="mysql"/>
+    </bean>-->
+    <bean id="bookDao" class="dao.impl.BookDaoimpl">
+        <constructor-arg type="int" value="3"/>
+        <constructor-arg type="java.lang.String" value="mysql"/>
+    </bean>
+    <bean id="userService" class="service.impl.UserServiceimpl">
+        <!--        <property name="userDao" ref="userDao"/>-->
+        <!--        <property name="bookDao" ref="bookDao"/>-->
+        <constructor-arg name="userDao" ref="userDao"/>
+        <constructor-arg name="bookDao" ref="bookDao"/>
+    </bean>
+    <!--    <bean id="userDaoFactory" class="factory.UserDaoFactory"/>-->
+    <!--    <bean id="userDao" factory-bean="userDaoFactory" factory-method="getUserDao"/>-->
+    <!--    <bean id="userDao" class="factory.UserDaoFactoryBean"/>-->
 </beans>
