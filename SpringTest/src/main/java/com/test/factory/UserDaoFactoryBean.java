@@ -1,7 +1,7 @@
-package factory;
+package com.test.factory;
 
-import dao.UserDao;
-import dao.impl.UserDaoimpl;
+import com.test.dao.UserDao;
+import com.test.dao.impl.UserDaoimpl;
 import org.springframework.beans.factory.FactoryBean;
 
 public class UserDaoFactoryBean implements FactoryBean<UserDao> {

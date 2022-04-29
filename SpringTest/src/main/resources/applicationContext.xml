@@ -8,9 +8,15 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <context:component-scan base-package="com.test.dao.impl"/>
+
+
+
+
     <!--    <context:property-placeholder location="jdbc.properties"/>-->
-    <!--    <bean id="userDao" class="dao.impl.UserDaoimpl" init-method="init" destroy-method="destroy"/>-->
-    <bean id="userDao" class="dao.impl.UserDaoimpl">
+    <!--    <bean id="userDao" class="com.test.dao.impl.UserDaoimpl" init-method="init" destroy-method="destroy"/>-->
+
+    <!--<bean id="userDao" class="com.test.dao.impl.UserDaoimpl">
         <property name="array">
             <array>
                 <value>10</value>
@@ -47,27 +53,28 @@
                 <prop key="car">Cat</prop>
             </props>
         </property>
-    </bean>
-    <!--    <bean id="bookDao" class="dao.impl.BookDaoimpl"/>-->
-    <!--    <bean id="bookDao" class="dao.impl.BookDaoimpl">-->
+    </bean>-->
+    <!--    <bean id="bookDao" class="com.test.dao.impl.BookDaoimpl"/>-->
+    <!--    <bean id="bookDao" class="com.test.dao.impl.BookDaoimpl">-->
     <!--        <property name="conn" value="3"/>-->
     <!--        <property name="database" value="mysql"/>-->
     <!--    </bean>-->
-    <!--<bean id="bookDao" class="dao.impl.BookDaoimpl">
+    <!--<bean id="bookDao" class="com.test.dao.impl.BookDaoimpl">
         <constructor-arg name="conn" value="3"/>
         <constructor-arg name="database" value="mysql"/>
     </bean>-->
-    <bean id="bookDao" class="dao.impl.BookDaoimpl">
+    <!--<bean id="bookDao" class="com.test.dao.impl.BookDaoimpl">
         <constructor-arg type="int" value="3"/>
         <constructor-arg type="java.lang.String" value="mysql"/>
-    </bean>
-    <bean id="userService" class="service.impl.UserServiceimpl">
-        <!--        <property name="userDao" ref="userDao"/>-->
-        <!--        <property name="bookDao" ref="bookDao"/>-->
-        <constructor-arg name="userDao" ref="userDao"/>
-        <constructor-arg name="bookDao" ref="bookDao"/>
-    </bean>
-    <!--    <bean id="userDaoFactory" class="factory.UserDaoFactory"/>-->
-    <!--    <bean id="userDao" factory-bean="userDaoFactory" factory-method="getUserDao"/>-->
-    <!--    <bean id="userDao" class="factory.UserDaoFactoryBean"/>-->
+    </bean>-->
+<!--    <bean id="userService" class="com.test.service.impl.UserServiceimpl">-->
+<!--        &lt;!&ndash;        <property name="userDao" ref="userDao"/>&ndash;&gt;-->
+<!--        &lt;!&ndash;        <property name="bookDao" ref="bookDao"/>&ndash;&gt;-->
+<!--        <constructor-arg name="userDao" ref="userDao"/>-->
+<!--        <constructor-arg name="bookDao" ref="bookDao"/>-->
+<!--    </bean>-->
+    <!--    <bean id="userDaoFactory" class="com.test.factory.UserDaoFactory"/>-->
+    <!--    <bean id="userDao" com.test.factory-bean="userDaoFactory" com.test.factory-method="getUserDao"/>-->
+    <!--    <bean id="userDao" class="com.test.factory.UserDaoFactoryBean"/>-->
+
 </beans>

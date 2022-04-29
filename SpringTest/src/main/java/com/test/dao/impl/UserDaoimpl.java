@@ -1,12 +1,20 @@
-package dao.impl;
+package com.test.dao.impl;
 
-import dao.UserDao;
+import com.test.dao.UserDao;
+import org.springframework.stereotype.Repository;
 
-import java.sql.Array;
-import java.util.*;
-
+@Repository
 public class UserDaoimpl implements UserDao {
-    private int[] array;
+//    @Value("${name}")
+//    private String name;
+    public void printime() {
+        System.out.println(System.currentTimeMillis());
+        System.out.println("printime");
+    }
+    public void print() {
+        System.out.println("UserDaoimpl");
+    }
+    /*private int[] array;
     private List<String> list;
     private Set<String> set;
     private Map<String,String> map;
@@ -39,11 +47,11 @@ public class UserDaoimpl implements UserDao {
         System.out.println("set"+set);
         System.out.println("map"+map);
         System.out.println("properties"+properties);
+    }*/
+    /*public void init(){
+        System.out.println("init...");
     }
-//    public void init(){
-//        System.out.println("init...");
-//    }
-//    public void destroy(){
-//        System.out.println("destroy...");
-//    }
+    public void destroy(){
+        System.out.println("destroy...");
+    }*/
 }

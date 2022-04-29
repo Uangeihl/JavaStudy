@@ -1,7 +1,6 @@
-package service.impl;
+package com.test.service.impl;
 
-import dao.impl.BookDaoimpl;
-import service.BookService;
+import com.test.service.BookService;
 
 public class BookServiceimpl implements BookService {
     

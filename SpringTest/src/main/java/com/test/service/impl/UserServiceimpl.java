@@ -1,26 +1,26 @@
-package service.impl;
+package com.test.service.impl;
 
-import dao.BookDao;
-import dao.UserDao;
-import dao.impl.BookDaoimpl;
-import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.InitializingBean;
-import service.UserService;
-
+import com.test.dao.UserDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.test.service.UserService;
+@Service
 public class UserServiceimpl implements UserService{
-    private UserDao userDao;
-    private BookDao bookDao;
 
-    public UserServiceimpl(UserDao userDao, BookDao bookDao) {
+    @Autowired
+    private UserDao userDao;
+//    private BookDao bookDao;
+
+    /*public UserServiceimpl(UserDao userDao, BookDao bookDao) {
         this.userDao = userDao;
-        this.bookDao = bookDao;
-    }
+//        this.bookDao = bookDao;
+    }*/
 
     public void print(){
         userDao.print();
-        bookDao.print();
+//        bookDao.print();
         System.out.println("UserServiceimpl");
-        System.out.println("BookServiceimpl");
+//        System.out.println("BookServiceimpl");
     }
 
 //    public void setUserDao(UserDao userDao) {
@@ -33,7 +33,7 @@ public class UserServiceimpl implements UserService{
 //        this.bookDao = bookDao;
 //    }
 //    public void destroy() throws Exception {
-//        System.out.println("service destroy");
+//        System.out.println("com.test.service destroy");
 //    }
 //
 //    public void afterPropertiesSet() throws Exception {

@@ -1,6 +1,6 @@
-package dao.impl;
+package com.test.dao.impl;
 
-import dao.BookDao;
+import com.test.dao.BookDao;
 
 public class BookDaoimpl implements BookDao {
     private int conn;
