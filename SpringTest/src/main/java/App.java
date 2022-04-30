@@ -16,7 +16,8 @@ public class App {
 //        UserService userService = ctx.getBean(UserService.class);
 //        userService.print();
         UserDao userDao = ctx.getBean(UserDao.class);
-        userDao.print();
+        int ret = userDao.printime(1);
+        System.out.println(ret);
 //        ctx.close();
     }
 }

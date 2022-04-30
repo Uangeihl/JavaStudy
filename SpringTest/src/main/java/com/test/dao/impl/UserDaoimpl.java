@@ -7,9 +7,9 @@ import org.springframework.stereotype.Repository;
 public class UserDaoimpl implements UserDao {
 //    @Value("${name}")
 //    private String name;
-    public void printime() {
-        System.out.println(System.currentTimeMillis());
-        System.out.println("printime");
+    public int printime(int id) {
+        System.out.println("printime"+id);
+        return (int) System.currentTimeMillis();
     }
     public void print() {
         System.out.println("UserDaoimpl");

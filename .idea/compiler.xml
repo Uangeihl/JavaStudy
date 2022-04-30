@@ -6,12 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="SpringMVCTest" />
         <module name="TomcatTest" />
         <module name="Web" />
         <module name="SpringTest" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="SpringMVC" target="1.7" />
+      <module name="SpringMVCTest" target="1.5" />
       <module name="SpringTest" target="1.5" />
       <module name="TomcatTest" target="1.7" />
       <module name="Web" target="1.7" />
