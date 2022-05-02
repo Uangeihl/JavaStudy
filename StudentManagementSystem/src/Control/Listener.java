@@ -18,12 +18,13 @@ public class Listener implements ServletContextListener{
 
     public void contextDestroyed(ServletContextEvent servletContextEvent) {
         Enumeration<Driver> drivers = DriverManager.getDrivers();
-        Driver driver = null;
+        Driver driver;
         while (drivers.hasMoreElements()) {
             try {
                 driver = drivers.nextElement();
                 DriverManager.deregisterDriver(driver);
             } catch (SQLException ex) {
+                ex.printStackTrace();
             }
         }
         AbandonedConnectionCleanupThread.checkedShutdown();

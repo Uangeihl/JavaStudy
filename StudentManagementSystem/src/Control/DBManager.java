@@ -8,8 +8,6 @@ public class DBManager {
     private static final String username = "root";
     private static final String pwd = "123456";
     private static Connection conn = null;
-    private static Statement stmt = null;
-    private static ResultSet resultSet = null;
 //    注册驱动
     static {
         try {

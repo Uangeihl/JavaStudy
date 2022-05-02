@@ -70,7 +70,8 @@ public class ScoresDeal {
         if(isIdExist(student.getId())) return false;
         conn=new DBManager().getConnection();
         stmt=conn.createStatement();
-        sql="insert into manager.score (id,name,czxt,wjyl,jsjwl) values(" + student.getId() + ",'" + student.getName() + "'," + student.getCzxt() + "," + student.getWjyl() + "," + student.getJsjwl() + ")";
+        sql="insert into manager.score (id,name,czxt,wjyl,jsjwl) values(" + student.getId() + ",'" + student.getName() +
+                "'," + student.getCzxt() + "," + student.getWjyl() + "," + student.getJsjwl() + ")";
         if(stmt.executeUpdate(sql)>=1) result=true;
         return result;
     }
@@ -80,7 +81,8 @@ public class ScoresDeal {
         if(!isIdExist(student.getId())) return false;
         conn=new DBManager().getConnection();
         stmt=conn.createStatement();
-        sql="update manager.score set name = '" + student.getName() + "',czxt = " + student.getCzxt() + ",wjyl = " + student.getWjyl() + ",jsjwl = " + student.getJsjwl() + " where id = " + student.getId() + "";
+        sql="update manager.score set name = '" + student.getName() + "',czxt = " + student.getCzxt() + ",wjyl = " +
+                student.getWjyl() + ",jsjwl = " + student.getJsjwl() + " where id = " + student.getId() + "";
         if(stmt.executeUpdate(sql)>=1) result=true;
         return result;
     }
@@ -93,8 +95,10 @@ public class ScoresDeal {
         resultSet = stmt.executeQuery(sql);
         stu.setId(id);
         while (resultSet.next()){
-
-            stu.setName(resultSet.getString("name")); stu.setCzxt(resultSet.getInt("czxt")); stu.setWjyl(resultSet.getInt("wjyl"));resultSet.getInt("wjyl"); stu.setJsjwl(resultSet.getInt("jsjwl"));
+            stu.setName(resultSet.getString("name"));
+            stu.setCzxt(resultSet.getInt("czxt"));
+            stu.setWjyl(resultSet.getInt("wjyl"));resultSet.getInt("wjyl");
+            stu.setJsjwl(resultSet.getInt("jsjwl"));
         }
             return stu;
     }
