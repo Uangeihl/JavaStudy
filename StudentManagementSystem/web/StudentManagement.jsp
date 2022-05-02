@@ -51,7 +51,8 @@
             }
             for (Student student : al) {
                 out.println("<tr>");
-                out.println("<td>"+ student.getId()+"</td><td>"+ student.getName()+"</td><td>"+ student.getCzxt()+"</td><td>"+ student.getWjyl()+"</td><td>"+ student.getJsjwl()+"</td>");
+                out.println("<td>"+ student.getId()+"</td><td>"+ student.getName()+"</td><td>"+ student.getCzxt()+
+                "</td><td>"+ student.getWjyl()+"</td><td>"+ student.getJsjwl()+"</td>");
                 out.println("</tr>");
             }
 
