@@ -1,9 +1,41 @@
 package com.mybatis.domain;
 
+import java.util.Date;
+import java.util.List;
+
 public class User {
     private int id;
     private String username;
     private String password;
+    private Date birthday;
+
+    private List<Order> orderList;
+
+    private List<Role> roleList;
+
+    public List<Role> getRoleList() {
+        return roleList;
+    }
+
+    public void setRoleList(List<Role> roleList) {
+        this.roleList = roleList;
+    }
+
+    public List<Order> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
 
     public int getId() {
         return id;
@@ -28,6 +60,26 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+/*
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }*/
+/*
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", birthday=" + birthday +
+                ", orderList=" + orderList +
+                '}';
+    }*/
 
     @Override
     public String toString() {
@@ -35,6 +87,8 @@ public class User {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", birthday=" + birthday +
+                ", roleList=" + roleList +
                 '}';
     }
 }

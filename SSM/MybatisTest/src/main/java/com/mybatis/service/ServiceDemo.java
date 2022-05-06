@@ -1,7 +1,8 @@
 package com.mybatis.service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.mybatis.dao.UserMapper;
-import com.mybatis.dao.impl.UserMapperImpl;
 import com.mybatis.domain.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -31,13 +32,31 @@ public class ServiceDemo {
         user.setId(0);
         user.setUsername("tom");
         System.out.println(mapper.findByCondition(user));*/
+        //设置分页相关参数
 /*
+        PageHelper.startPage(2,3);
+
         List<User> all = mapper.findAll();
+        for (User user : all) {
+            System.out.println(user);
+        }
+        //获得与分页相关的参数
+        PageInfo<User> pageInfo = new PageInfo<User>(all);
+        System.out.println("当前页："+pageInfo.getPageNum());
+        System.out.println("每页显示条数："+pageInfo.getPageSize());
+        System.out.println("总条数："+pageInfo.getTotal());
+        System.out.println("总页数："+pageInfo.getPages());
+        System.out.println("上一页："+pageInfo.getPrePage());
+        System.out.println("下一页："+pageInfo.getNextPage());
+        System.out.println("是否是第一页："+pageInfo.isIsFirstPage());
+        System.out.println("是否是最后一页："+pageInfo.isIsLastPage());
+*/
+
+/*
         User findbyid = mapper.findById(2);
-        System.out.println(all);
         System.out.println(findbyid);
 */
-        /*UserMapper userMapper = new UserMapperImpl();
+        /*UserMapper userMapper = (UserMapper) new UserMapperImpl();
         List<User> all = userMapper.findAll();
         System.out.println(all);*/
     }
