@@ -1,0 +1,13 @@
+server:
+  port: 80
+
+lesson: SpringBoot
+
+enterprise:
+  name: itcast
+  age: 16
+  tel: 123456
+  subject:
+    - java
+    - python
+    - 大数据
