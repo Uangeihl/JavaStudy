@@ -21,7 +21,6 @@ class ApplicationTests {
     private BookDao bookDao;
     @Test
     void testgetById() {
-
         System.out.println(bookDao.getById(1));
     }
 }
