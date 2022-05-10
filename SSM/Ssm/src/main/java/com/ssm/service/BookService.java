@@ -1,10 +1,11 @@
 package com.ssm.service;
 
 import com.ssm.domain.Book;
-import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Transactional
 public interface BookService {
     /**
      * 保存
