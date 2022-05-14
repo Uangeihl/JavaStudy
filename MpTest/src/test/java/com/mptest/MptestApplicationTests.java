@@ -13,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.sql.Wrapper;
 import java.util.List;
+import java.util.Map;
 
 @SpringBootTest
 class MptestApplicationTests {
@@ -45,22 +46,44 @@ class MptestApplicationTests {
         user.setTel("400400400");
         userDao.updateById(user);
     }
+/*    @Test
+    void testGetAll() {
+//        QueryWrapper<User> lqw = new QueryWrapper<User>();
+//        lqw.select(User::getId,User::getAge);
+//        lqw.select("count(*) as count, age");
+//        lqw.groupBy("age");
+//        LambdaQueryWrapper<User> lqw = new LambdaQueryWrapper<User>();
+//        lqw.eq(User::getName, "mp").eq(User::getPassword, "123456");
+//        List<Map<String, Object>> userList = userDao.selectMaps(lqw);
+//        List<User> userList = userDao.selectList(lqw);
+//        System.out.println(userList);
+//        User selectOne = userDao.selectOne(lqw);
+//        System.out.println(selectOne);
+        LambdaQueryWrapper<User> lqw = new LambdaQueryWrapper<User>();
+*//*        //范围查询 lt le gt ge eq between
+        lqw.between(User::getAge,4,13);*//*
+        //模糊匹配 like
+        lqw.like(User::getName, "J");
 
+        List<User> userList = userDao.selectList(lqw);
+        System.out.println(userList);
+    }*/
+/*
     @Test
     void testGetAll() {
         //方式一：按条件查询
-/*
+*//*
         QueryWrapper qw = new QueryWrapper();
         qw.lt("age",18);
         List<User> userList = userDao.selectList(qw);
         System.out.println(userList);
-*/
+*//*
 
         //方式二：lambda格式按条件查询
-/*        QueryWrapper<User> qw = new QueryWrapper<User>();
+*//*        QueryWrapper<User> qw = new QueryWrapper<User>();
         qw.lambda().lt(User::getAge,2);
         List<User> userList = userDao.selectList(qw);
-        System.out.println(userList);*/
+        System.out.println(userList);*//*
 
         //方式三：lambda格式按条件查询
         UserQuery uq =new UserQuery();
@@ -78,13 +101,12 @@ class MptestApplicationTests {
 //        lqw.lt(User::getAge,5).or().gt(User::getAge,12);
         List<User> userList = userDao.selectList(lqw);
         System.out.println(userList);
-    }
-/*
+    }*/
     @Test
     void testGetAll() {
         List<User> userList = userDao.selectList(null);
         System.out.println(userList);
-    }*/
+    }
 /*
     @Test
     void testGetByPage() {
