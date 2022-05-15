@@ -1,7 +1,6 @@
 package com.mptest.domain;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.*;
 
 //lombok
@@ -12,9 +11,11 @@ import lombok.*;
 //@NoArgsConstructor
 //@AllArgsConstructor
 //@EqualsAndHashCode
-@TableName("tbl_user")
+
+//@TableName("tbl_user")
 public class User {
 
+//    @TableId(type = IdType.AUTO)
     private Long id;
     private String name;
     @TableField(value = "pwd", select = false)
@@ -24,6 +25,11 @@ public class User {
 
     @TableField(exist = false)
     private Integer online;
+
+    //逻辑删除字段，标记当前记录是否被删除
+//    @TableLogic(value = "0", delval = "1")
+    private Integer deleted;
+
 /*
 
     @Override

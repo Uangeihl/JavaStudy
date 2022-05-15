@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.sql.Wrapper;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -20,6 +21,25 @@ class MptestApplicationTests {
 
     @Autowired
     private UserDao userDao;
+
+    @Test
+    void testSelectBatchIds() {
+        List<Long> list = new ArrayList<>();
+        list.add(1L);
+        list.add(4L);
+        list.add(5L);
+        userDao.selectBatchIds(list);
+    }
+
+    @Test
+    void testDeleteBatchIds() {
+        List<Long> list = new ArrayList<>();
+        list.add(8L);
+        list.add(9L);
+        list.add(10L);
+        userDao.deleteBatchIds(list);
+
+    }
 
     @Test
     void testSave() {
@@ -33,7 +53,7 @@ class MptestApplicationTests {
 
     @Test
     void testDelete() {
-        userDao.deleteById(1524657749185642497L);
+        userDao.deleteById(1L);
     }
 
     @Test
