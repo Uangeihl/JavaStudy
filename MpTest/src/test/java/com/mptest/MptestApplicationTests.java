@@ -55,17 +55,26 @@ class MptestApplicationTests {
     void testDelete() {
         userDao.deleteById(1L);
     }
-
+    @Test
+    void testUpdate(){
+        //1.先通过要修改的数据id将当前数据查询出来
+        User user = userDao.selectById(3L);
+        //2.将要修改的属性逐一设置进去
+        user.setName("Jock123");
+        userDao.updateById(user);
+    }
+/*
     @Test
     void testUpdate(){
         User user = new User();
-        user.setId(1L);
-        user.setName("mp");
-        user.setPassword("123456");
-        user.setAge(12);
-        user.setTel("400400400");
+        user.setId(2L);
+        user.setName("jock");
+        user.setVersion(1);
+//        user.setPassword("123456");
+//        user.setAge(12);
+//        user.setTel("400400400");
         userDao.updateById(user);
-    }
+    }*/
 /*    @Test
     void testGetAll() {
 //        QueryWrapper<User> lqw = new QueryWrapper<User>();

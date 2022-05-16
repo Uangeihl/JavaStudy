@@ -30,6 +30,10 @@ public class User {
 //    @TableLogic(value = "0", delval = "1")
     private Integer deleted;
 
+    @Version
+    private Integer version;
+
+
 /*
 
     @Override
